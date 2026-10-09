@@ -262,7 +262,7 @@ export default function RequestMatching() {
                             <div className="matching-card-top">
                                 <div>
                                     <span className="matching-request-id">
-                                        Request {item.request.id.slice(0, 8).toUpperCase()}
+                                        Request {String(item.request.id).slice(0, 8).toUpperCase()}
                                     </span>
                                     <h3>
                                         {item.request.recipient_blood_group}{" "}
