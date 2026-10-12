@@ -8,6 +8,8 @@ import BloodRequests from "./components/BloodRequests";
 import RequestMatching from "./components/RequestMatching";
 import DonorManagement from "./components/DonorManagement";
 import DonorCooldown from "./components/DonorCooldown";
+import DonorDashboard from "./components/DonorDashboard";
+import DemandForecast from "./components/DemandForecast";
 
 type Role = "admin" | "staff" | "hospital" | "donor";
 
@@ -256,7 +258,10 @@ function App() {
             <RequestMatching />
             <DonorManagement />
             <DonorCooldown />
+            <DemandForecast />
           </>
+        ) : profile.role === "donor" ? (
+          <DonorDashboard />
         ) : (
           <section className="dashboard-grid">
             <article className="dashboard-card role-card">
@@ -273,18 +278,22 @@ function App() {
 
             <article className="dashboard-card account-card">
               <h2>Account details</h2>
+
               <div className="detail-row">
                 <span>Name</span>
                 <strong>{profile.full_name}</strong>
               </div>
+
               <div className="detail-row">
                 <span>Email</span>
                 <strong>{profile.email}</strong>
               </div>
+
               <div className="detail-row">
                 <span>Role</span>
                 <strong>{profile.role}</strong>
               </div>
+
               <div className="detail-row">
                 <span>Account status</span>
                 <strong>Active</strong>
